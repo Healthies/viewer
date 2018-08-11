@@ -1,1 +1,1 @@
-exclude: [node_modules, bower_components, dist, src, dependencies, test ]
+exclude: [node_modules, bower_components, dist, src, dependencies, test, examples ]
