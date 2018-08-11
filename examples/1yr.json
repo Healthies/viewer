@@ -1,5 +1,6 @@
 {
-"measures" : ["step_count","heart_rate"],
+
+"measures" : ["step_count","heart_rate","body_weight","systolic_blood_pressure, diastolic_blood_pressure","minutes_moderate_activity, step_count","distance"],
 "samples" : [
 {"header":{"id":"76125da1-919a-4a31-a97c-e61726071d11","creation_date_time":"2014-01-05T17:53:28Z","acquisition_provenance":{"source_name":"generator","source_creation_date_time":"2015-07-09T22:04:23.471+02:00","modality":"sensed"},"user_id":"some-user","schema_id":{"namespace":"omh","name":"blood-pressure","version":"1.0"}},"body":{"effective_time_frame":{"date_time":"2014-01-05T17:53:28Z"},"systolic_blood_pressure":{"unit":"mmHg","value":112.2770482852676},"diastolic_blood_pressure":{"unit":"mmHg","value":66.79275804662011}},"id":"76125da1-919a-4a31-a97c-e61726071d11"},
 {"header":{"id":"99dd0991-270a-4e75-8f13-1f79bdffc864","creation_date_time":"2014-01-06T08:36:09Z","acquisition_provenance":{"source_name":"generator","source_creation_date_time":"2015-07-09T22:04:23.471+02:00","modality":"sensed"},"user_id":"some-user","schema_id":{"namespace":"omh","name":"blood-pressure","version":"1.0"}},"body":{"effective_time_frame":{"date_time":"2014-01-06T08:36:09Z"},"systolic_blood_pressure":{"unit":"mmHg","value":104.9073423812299},"diastolic_blood_pressure":{"unit":"mmHg","value":64.85768123424086}},"id":"99dd0991-270a-4e75-8f13-1f79bdffc864"},

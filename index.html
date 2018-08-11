@@ -675,7 +675,16 @@
     //console.log("currentUrl", currentUrl);
 
     queryString = location.search;
-    currentUrl = queryString.split('?url=')[1];
+    if (queryString === "") {
+    } else {
+      console.log("has querystring", queryString )
+      queryUrl = queryString.split('?url=')[1];
+      if (queryUrl  === "") {
+      } else {
+        console.log("queryUrl", queryUrl )
+        currentUrl = queryUrl
+      }
+    }
 
     //console.log(location.search);
     //console.log(currentUrl);
