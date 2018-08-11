@@ -154,7 +154,7 @@
 <script src="bower_components/plottable/plottable.js"></script>
 <script src="bower_components/moment/moment.js"></script>
 <script src="dist/omh-web-visualizations-all.js"></script>
-<script src="examples/1yr.js"></script>
+<!-- <script src="examples/1yr.js"></script> -->
 
 <script>
 
@@ -166,7 +166,7 @@
 
     //data is reused if url is not changed
     var currentData;
-    var currentUrl = '1yr.json';
+    var currentUrl; // = '1yr.json';
 
     var loadingMessage = d3.select( '.loading-message' );
     var datapointDetails = d3.select( '.datapoint-details' );
@@ -671,7 +671,7 @@
     d3.select( '.update-button' ).on( 'click', parseInputAndMakeChart );
 
     //console.log("currentUrl", currentUrl);
-    currentUrl = "examples/1yr.json"
+    //currentUrl = "examples/1yr.json"
     //console.log("currentUrl", currentUrl);
 
     queryString = location.search;
