@@ -20,7 +20,7 @@
   ],
   "devDependencies": {
     "del": "^1.2.1",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-cache": "^0.2.10",
     "gulp-concat": "^2.6.0",
@@ -36,6 +36,7 @@
     "ink-docstrap": "^1.1.4",
     "jasmine-core": "^2.3.4",
     "jsdoc": "^3.4.0",
+    "query-string": "^6.1.0",
     "karma": "^0.13.19",
     "karma-jasmine": "^0.3.5",
     "karma-notify-reporter": "^0.1.1",

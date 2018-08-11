@@ -47,9 +47,7 @@
   fill: #a4a4a4;
 }
 .plottable .gridlines-axis .tick-label-container {
-  -webkit-transform: translateX(6px);
-      -ms-transform: translateX(6px);
-          transform: translateX(6px);
+  transform: translateX(6px);
 }
 .plottable .axis-label text {
   fill: #a4a4a4;
@@ -59,22 +57,16 @@
 }
 .plottable .axis-label .background-container .background-fill {
   fill: url(#y-axis-label-gradient);
-  -webkit-transform: translateX(1px);
-      -ms-transform: translateX(1px);
-          transform: translateX(1px);
+  transform: translateX(1px);
 }
 .plottable .content > .component-group:first-child .axis-label .background-container .background-fill {
-  -webkit-transform: translateX(-1px);
-      -ms-transform: translateX(-1px);
-          transform: translateX(-1px);
+  transform: translateX(-1px);
 }
 .plottable .axis-label text {
   letter-spacing: 0px;
 }
 .plottable .legend .content {
-  -webkit-transform: translateX(-5px);
-      -ms-transform: translateX(-5px);
-          transform: translateX(-5px);
+  transform: translateX(-5px);
 }
 .plottable .legend text {
   fill: #a4a4a4;
@@ -85,8 +77,7 @@
 .d3-tip {
   padding-bottom: 20px;
   pointer-events: none !important;
-  -webkit-transition: opacity 0.5s ease-in-out;
-          transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 .omh-tooltip {
   width: auto;
@@ -115,8 +106,7 @@
 }
 .omh-chart-container .zoom-hint-label {
   cursor: pointer;
-  -webkit-transition: opacity 2s;
-          transition: opacity 2s;
+  transition: opacity 2s;
 }
 .omh-chart-container .zoom-hint-label text {
   font-size: 12px;

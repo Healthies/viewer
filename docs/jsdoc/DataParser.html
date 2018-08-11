@@ -38,16 +38,18 @@
 			</li>
 			
 		</ul>
-		<div class="col-sm-3 col-md-3">
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        
 	</div>
 
 </div>
@@ -77,7 +79,7 @@
 <p>The following <a href="ChartConfiguration.html">ChartConfiguration</a> settings for each measure are used to parse the data:</p>
 <p>data.yValuePath - a dot-delimited string that indicates where in a data point the y value of a point can be found</p>
 <p>data.xValueQuantization.period - the granularity of time quantization desired for the data (e.g. <a href="DataParser.html#.QUANTIZE_DAY">DataParser.QUANTIZE_DAY</a> )</p>
-<p>data.xValueQuantization.aggregator - how to aggregate data points that are quantized to the same moment in time (e.g. <a href="DataParser.html#.aggregators.mean">DataParser.aggregators.mean</a> )</p></div>
+<p>data.xValueQuantization.aggregator - how to aggregate data points that are quantized to the same moment in time (e.g. DataParser.aggregators.mean )</p></div>
         
     
 </header>
@@ -281,7 +283,7 @@
             
 <hr>
 <dt class="name" id=".QUANTIZE_DAY">
-    <h4><span class="type-signature">&lt;static> </span>QUANTIZE_DAY<span class="type-signature"> :number</span></h4>
+    <h4 id=".QUANTIZE_DAY"><span class="type-signature">&lt;static> </span>QUANTIZE_DAY<span class="type-signature"> :number</span></h4>
 
     
 </dt>
@@ -352,7 +354,7 @@
             
 <hr>
 <dt class="name" id=".QUANTIZE_HOUR">
-    <h4><span class="type-signature">&lt;static> </span>QUANTIZE_HOUR<span class="type-signature"> :number</span></h4>
+    <h4 id=".QUANTIZE_HOUR"><span class="type-signature">&lt;static> </span>QUANTIZE_HOUR<span class="type-signature"> :number</span></h4>
 
     
 </dt>
@@ -423,7 +425,7 @@
             
 <hr>
 <dt class="name" id=".QUANTIZE_MILLISECOND">
-    <h4><span class="type-signature">&lt;static> </span>QUANTIZE_MILLISECOND<span class="type-signature"> :number</span></h4>
+    <h4 id=".QUANTIZE_MILLISECOND"><span class="type-signature">&lt;static> </span>QUANTIZE_MILLISECOND<span class="type-signature"> :number</span></h4>
 
     
 </dt>
@@ -494,7 +496,7 @@
             
 <hr>
 <dt class="name" id=".QUANTIZE_MINUTE">
-    <h4><span class="type-signature">&lt;static> </span>QUANTIZE_MINUTE<span class="type-signature"> :number</span></h4>
+    <h4 id=".QUANTIZE_MINUTE"><span class="type-signature">&lt;static> </span>QUANTIZE_MINUTE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
@@ -565,7 +567,7 @@
             
 <hr>
 <dt class="name" id=".QUANTIZE_MONTH">
-    <h4><span class="type-signature">&lt;static> </span>QUANTIZE_MONTH<span class="type-signature"> :number</span></h4>
+    <h4 id=".QUANTIZE_MONTH"><span class="type-signature">&lt;static> </span>QUANTIZE_MONTH<span class="type-signature"> :number</span></h4>
 
     
 </dt>
@@ -636,7 +638,7 @@
             
 <hr>
 <dt class="name" id=".QUANTIZE_NONE">
-    <h4><span class="type-signature">&lt;static> </span>QUANTIZE_NONE<span class="type-signature"> :number</span></h4>
+    <h4 id=".QUANTIZE_NONE"><span class="type-signature">&lt;static> </span>QUANTIZE_NONE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
@@ -707,7 +709,7 @@
             
 <hr>
 <dt class="name" id=".QUANTIZE_SECOND">
-    <h4><span class="type-signature">&lt;static> </span>QUANTIZE_SECOND<span class="type-signature"> :number</span></h4>
+    <h4 id=".QUANTIZE_SECOND"><span class="type-signature">&lt;static> </span>QUANTIZE_SECOND<span class="type-signature"> :number</span></h4>
 
     
 </dt>
@@ -778,7 +780,7 @@
             
 <hr>
 <dt class="name" id=".QUANTIZE_YEAR">
-    <h4><span class="type-signature">&lt;static> </span>QUANTIZE_YEAR<span class="type-signature"> :number</span></h4>
+    <h4 id=".QUANTIZE_YEAR"><span class="type-signature">&lt;static> </span>QUANTIZE_YEAR<span class="type-signature"> :number</span></h4>
 
     
 </dt>
@@ -852,393 +854,6 @@
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id=".aggregators.mean"><span class="type-signature">&lt;static> </span>aggregators.mean(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Aggregate points with the same time value by finding the mean.</p>
-<p>Provenance data for the first point( chronologically ) will be preserved. For a given moment in time shared by more than one point, all but one point at that time are removed from the data array, and references to aggregated points are stored in the remaining point as 'aggregatedData' field.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The data to aggregate</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".aggregators.mean"><span class="type-signature">&lt;static> </span>aggregators.mean(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Aggregate points with the same time value by finding the mean.</p>
-<p>Provenance data for the first point( chronologically ) will be preserved. For a given moment in time shared by more than one point, all but one point at that time are removed from the data array, and references to aggregated points are stored in the remaining point as 'aggregatedData' field.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The data to aggregate</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".aggregators.sum"><span class="type-signature">&lt;static> </span>aggregators.sum(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Aggregate points with the same time value by summing them.</p>
-<p>Provenance data for the first point (chronologically) will be preserved. For a given moment in time shared by more than one point, all but one point at that time are removed from the data array, and references to aggregated points are stored in the remaining point as 'aggregatedData' field.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The data to aggregate</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
             
 <hr>
 <dt>
@@ -2671,28 +2286,30 @@
 </div>
 </div>
 
-<div class="modal fade" id="searchResults">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Search results</h4>
-      </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div>
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
 
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on April 29th 2016, 1:52:32 pm
+		on August 11th 2018, 12:27:53 pm
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
@@ -2700,7 +2317,9 @@
 
 <script src="scripts/docstrap.lib.js"></script>
 <script src="scripts/toc.js"></script>
-<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
 
 <script>
 $( function () {
@@ -2710,7 +2329,7 @@ $( function () {
 		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
 	} );
 
-	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
 		var $this = $( this );
 
 		var example = $this.find( "code" );
@@ -2746,8 +2365,7 @@ $( function () {
 	} );
 	$( "#toc" ).toc( {
 		anchorName  : function ( i, heading, prefix ) {
-			var id = $( heading ).attr( "id" );
-			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+			return $( heading ).attr( "id" ) || ( prefix + i );
 		},
 		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
 		showAndHide : false,
@@ -2773,11 +2391,13 @@ $( function () {
 <!--Google Analytics-->
 
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		SearcherDisplay.init();
-	});
-</script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
 
 </body>
 </html>

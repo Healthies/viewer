@@ -38,16 +38,18 @@
 			</li>
 			
 		</ul>
-		<div class="col-sm-3 col-md-3">
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        
 	</div>
 
 </div>
@@ -150,7 +152,7 @@ It currently generates line charts and bar charts, with default settings include
 </tr>
 <tr>
 <td style="text-align:right"><em>settings</em></td>
-<td>An object with <a href="#configuring_a_chart">settings</a> for the chart. If this is omitted or if an empty object is passed in, the function uses the default settings explained below.</td>
+<td>An object with <a href="#configuring-a-chart">settings</a> for the chart. If this is omitted or if an empty object is passed in, the function uses the default settings explained below.</td>
 </tr>
 </tbody>
 </table>
@@ -269,7 +271,9 @@ It currently generates line charts and bar charts, with default settings include
             }
         }
     }
-}</code></pre><p>For example, using these default settings to graph <code>heart_rate</code> data will generate a chart that looks like this:</p>
+}
+
+</code></pre><p>For example, using these default settings to graph <code>heart_rate</code> data will generate a chart that looks like this:</p>
 <p><img src="http://www.openmhealth.org/media/viz_example_default_options.png" alt="Configured Chart" title="Default Chart"></p>
 <p>If you look carefully at the default settings object, you'll also notice that some measure settings have more properties than others. When a property is missing, the following default settings are assumed. </p>
 <pre class="prettyprint source lang-javascript"><code>{
@@ -362,8 +366,7 @@ var settings = {
 <img src="http://www.openmhealth.org/media/viz_example_quantized_data.png" alt="Quantized Data" title="Quantized Data"></p>
 <h3>Gridlines</h3><p>Horizontal lines (e.g. representing safe thresholds) can be drawn on charts. Each line is labelled with a custom label or its <code>y</code> value, unless that label will overlap another gridline's label. Here are two maximum gridlines with default appearance:
 <img src="http://www.openmhealth.org/media/viz_example_threshold_basic.png" alt="Default Gridlines" title="Default Maximum Gridline"></p>
-<p>Gridlines can be specified in the <code>chart</code> property of a measure in the <code>measures</code> section of the configuration <code>settings</code> object.</p>
-<p>A gridline in the <code>settings</code> object should have the following properties:</p>
+<p>Gridlines can be specified as <code>gridlines</code> in the <code>chart</code> property of a measure in the <code>measures</code> section of the configuration <code>settings</code> object, eg: <code>settings.measures.heart_rate.chart.gridlines</code>. It should be an array of gridline objects, as detailed below:</p>
 <table>
 <thead>
 <tr>
@@ -424,11 +427,12 @@ var dangerSettings = {
 chart = new OMHWebVisualizations.Chart( data, element, measureList, dangerSettings );
 if ( chart.initialized ) {
     chart.renderTo( element.select( &quot;svg&quot; ).node() );
-}</code></pre><p>The code above changes the color of points above the gridline:
+}
+</code></pre><p>The code above changes the color of points above the gridline:
 <img src="http://www.openmhealth.org/media/viz_example_threshold_color.png" alt="Above Gridline Color" title="Above Gridline Color"></p>
 <p>You could also add a range in the chart that is colored differently:
 <img src="http://www.openmhealth.org/media/viz_example_threshold_color_band.png" alt="Above Gridline Color with Colored Range" title="Above Gridline Color with Colored Range"></p>
-<h3>Tooltips</h3><p>Tooltips can be enabled, disabled, and configured using the <code>userInterface.tooltips</code> property of the <code>settings</code> object passed into the constructor (<a href="#configuring_a_chart">see 'Configuring a Chart'</a>). The properties of <code>userInterface.tooltips</code> are explained in the following table:</p>
+<h3>Tooltips</h3><p>Tooltips can be enabled, disabled, and configured using the <code>userInterface.tooltips</code> property of the <code>settings</code> object passed into the constructor (<a href="#configuring-a-chart">see 'Configuring a Chart'</a>). The properties of <code>userInterface.tooltips</code> are explained in the following table:</p>
 <table>
 <thead>
 <tr>
@@ -498,7 +502,8 @@ if (chart.initialized) {
 
    chart.renderTo( svgElement );
 
-}</code></pre><p>To see an example of component modification, check out the <code>examples/charts.html</code> file in this repository.</p>
+}
+</code></pre><p>To see an example of component modification, check out the <code>examples/charts.html</code> file in this repository.</p>
 <h3>Destroying a chart</h3><p>In order to free up resources or re-use an element for a new chart, the chart and all of its interactive features can be destroyed with:</p>
 <pre class="prettyprint source lang-javascript"><code>chart.destroy();</code></pre><h3>Contributing</h3><p>To contribute to this repository</p>
 <ol>
@@ -533,28 +538,30 @@ if (chart.initialized) {
 </div>
 </div>
 
-<div class="modal fade" id="searchResults">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Search results</h4>
-      </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div>
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
 
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on April 29th 2016, 1:52:32 pm
+		on August 11th 2018, 12:27:53 pm
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
@@ -562,7 +569,9 @@ if (chart.initialized) {
 
 <script src="scripts/docstrap.lib.js"></script>
 <script src="scripts/toc.js"></script>
-<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
 
 <script>
 $( function () {
@@ -572,7 +581,7 @@ $( function () {
 		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
 	} );
 
-	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
 		var $this = $( this );
 
 		var example = $this.find( "code" );
@@ -608,8 +617,7 @@ $( function () {
 	} );
 	$( "#toc" ).toc( {
 		anchorName  : function ( i, heading, prefix ) {
-			var id = $( heading ).attr( "id" );
-			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+			return $( heading ).attr( "id" ) || ( prefix + i );
 		},
 		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
 		showAndHide : false,
@@ -635,11 +643,13 @@ $( function () {
 <!--Google Analytics-->
 
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		SearcherDisplay.init();
-	});
-</script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
 
 </body>
 </html>
