@@ -110,15 +110,14 @@
         <p>
             The identity of the subject intentionally hidden
         </p>
-        <input class="update-url" type="hidden" value="examples/1yr.json">
-        <!--
+
         <p>
-            <span class="label">Data URL:</span> <input class="update-url" type="text" value="1yr.json"></input>
+            <span class="label">Data URL:</span> <input class="update-url" type="text" value="examples/1yr.json"></input>
             <button class="update-button">update</button>
         </p>
         <input class="measures" type="hidden" value="systolic_blood_pressure, diastolic_blood_pressure">
 
-      -->
+
         <p>
             <span class="label">Measure:</span>
             <div id=selector></div>
@@ -154,8 +153,6 @@
 <script src="bower_components/plottable/plottable.js"></script>
 <script src="bower_components/moment/moment.js"></script>
 <script src="dist/omh-web-visualizations-all.js"></script>
-<!-- <script src="examples/1yr.js"></script> -->
-
 <script>
 
     /*=================================================================
@@ -485,10 +482,9 @@
     }
 
     var makeChartForUrl = function ( url, element, measureList, configSettings ) {
-
+        console.log("url", url);
         var makeChart = function ( data ) {
             if ( data.hasOwnProperty( 'measures' ) ) {
-
                 var select = d3.select( '.measure-select' ).node();
                 measures = data.measures;
                 //console.log(measures);
@@ -574,13 +570,11 @@
         disableUI();
 
         if ( url === currentUrl && currentData !== null ) {
-
+            console.log("currentData=", currentData)
             makeChart( currentData );
 
         } else {
-
             hideChart();
-
             var xhr = d3.json( url )
                     .on( "progress", function () {
                         updateLoadingMessage( d3.event.loaded / d3.event.total );
@@ -593,10 +587,7 @@
                         showLoadingError( error );
                     } )
                     .get();
-
         }
-
-
     };
 
     var cloneObject = function ( object ) {
@@ -604,10 +595,9 @@
     };
 
     var parseInputAndMakeChart = function () {
-
         // Collect the user's input
         var url = d3.select( 'input.update-url' ).node().value;
-        //console.log(url);
+        console.log("currentUrl ", currentUrl);
         var measureList = d3.select(".measure-select").node().value;
 
         if (measureList === null) return;
@@ -670,9 +660,8 @@
     d3.select( 'select' ).on( 'change', parseInputAndMakeChart );
     d3.select( '.update-button' ).on( 'click', parseInputAndMakeChart );
 
-    //console.log("currentUrl", currentUrl);
-    //currentUrl = "examples/1yr.json"
-    //console.log("currentUrl", currentUrl);
+    currentUrl = "examples/1yr.json"
+    currentData = null;
 
     queryString = location.search;
     if (queryString === "") {
@@ -686,16 +675,11 @@
       }
     }
 
+    var url = d3.select( 'input.update-url' ).node();
+    url.value = currentUrl;
+
     //console.log(location.search);
-    //console.log(currentUrl);
-
-    currentData = null;
-
-    //make the chart when the document is loaded
-    // Make the chart
-    //setupMeasureList(currentUrl);
-
-    //makeChartForUrl( currentUrl, d3.select( '.demo-chart-container' ), measureList, chartSettings );
+    console.log(currentUrl);
 
     parseInputAndMakeChart();
 
